@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGasto</title>
+    <link rel="stylesheet" href="CSS/EcoGasto.css"> <!--IMPORTANTE: VINCULA CON EL CSS-->
+
+    <!--EXTRAS-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+
+</head>
+
+
+<!--CUERPO-->
+<body>
+    <!--Pondremosel menú-->
+    <header class="MenuNavegador">
+
+
+        <!--DIVISIÓN PARA EL LOGOTIPO EN EL HEADER-->
+        <div class="ContenedorLogo">
+
+            <div class="logo">
+
+                <img src="Imagenes/LOGO.png" alt="Logo" class="logo-img">
+            
+            </div>
+            <div class="logoTexto">
+                <h1>Ecogasto</h1> <!--Titulo para un body-->
+
+                <p>No heredamos la Tierra de nuestros antepasados, </br> la tomamos prestada de nuestros hijos.</p>
+            
+            </div>
+
+        </div>
+
+        <!--MENU DE NAVEGACIÓN-->
+        <nav >
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>            
+                <li><a href="#" id="Modulos_Que_Ofrecemos">¿Cómo funciona?</a></li> <!--id es agregado por el JS-->
+                <li><a href="#">Consejos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!--DIVISIÓN PARA FOTO DE PERFIL-->
+        <div class ="ContenedorFotoPerfil">
+            <label for="foto_perfil"> <!--se usa para asociar una etiqueta a un campo de formulario, como un <input>. Su función principal es hacer clickeable el texto o contenido dentro del <label> para activar el campo asociado-->
+                <img src="Imagenes/Perfil.png" alt="Foto de perfil" class="avatar-img" />
+            </label>
+
+            <input type="file" id="foto-perfil" accept="image/*" style="display: none" />
+        </div>
+
+  </header>
+
+
+    <main>
+    <!--ESTRUCTURA GENERAL
+     La sección completa irá debajo del navbar, ocupará toda la pantalla (100vh) 
+     y tendrá una capa oscura para que el texto sea legible sobre el fondo.-->
+
+     <!--SECCION 1 - BIENVENIDA-->
+     <section class="Bienvenida">
+        
+        <!-- CONTENEDOR SOLO PARA LAS TARJETA-->
+        <div class="contenedor-tarjetas">
+            <!--DIVISION "HIJA" de contenedor que tendrá una imagen, en este caso queremos que los textos vayan jutno a la imagen plq se hara en una misma division no como la clase semana 10, donde se trabajo en divisiones distintas debido a que se quria la imagen en otro lado y el texto en otro-->        
+            <div class="tarjetaSobreNosotros"> 
+                <img src="Imagenes/SobreNosotros.jpg" alt="Colección" />
+                <h1>Sobre Nosotros</h1>
+                <p>EcoGasto es una plataforma inteligente que ayuda a las </br> familias peruanas a tomar control de su consumo diario de </br> agua, luz, gas y transporte.</p>
+            </div>
+
+            <!--Division Mision que contiene una imagen alusia-->
+            <div class="Mision"> <!-- col-md-5 siempre va - columna 1 de 2, es una propiedad añadira que se vera en la CSS, es para imagenes, y esta imagen tiene otra propiedad que las demás-->
+                <img src="Imagenes/Mision.jpg" alt="Colección" />
+                <h1>Misión</h1>
+                <p>Ayudamos a las familias a ahorrar y vivir de forma más sostenible,</br> con tecnología que hace visible lo invisible.</p>
+            </div>
+
+            <div class="Vision"> <!-- col-md-5 siempre va - columna 1 de 2, es una propiedad añadira que se vera en la CSS, es para imagenes, y esta imagen tiene otra propiedad que las demás-->
+                <img src="Imagenes/Vision.jpg" alt="Colección" />
+                <h1>Visión</h1>
+                <p>Construir un futuro donde cada hogar peruano sea consciente, </br> eficiente y sostenible gracias al poder de la tecnología  y de la </br>responsabilidad ecológica.</p>
+            </div>
+
+        </div>        
+        
+        <!-- BOTÓN FUERA DE LAS TARJETAS -->
+        <div class="BtnEmpiezaCmabio">
+              <p class="txtEmpiezaCmabio">¿Estás listo para ahorrar más y vivir mejor?</p>
+             
+              <div>
+                 <a href="#" class="BtnEmpCambio">Empieza el cambio</a>
+              </div>
+
+        </div>
+
+     </section>
+
+
+    
+     <!-- SECCION 2º A LA CUAL SE LLEGA CON EL BOTON DE LA PRIMERA SECCION, RESUMEN DE LO OFRECEMOS-->
+     <section class="Modulos_Que_Ofrecemos">
+        <div class="BotonesXconsumo"> <!--DIVISION QUE CONTIENE A LOS BOTONES-->
+
+            <a href="#" class="btn1">
+              <div class="texto"> 📊 Mi Consumo</div>
+            </a>
+
+            <a href="#" class="btn2">
+              <div class="texto">🔔 Alertas</div>
+            </a>
+
+            <a href="#" class="btn3">
+              <div class="texto">💡 Tips</div>
+            </a>
+
+            <a href="#" class="btn4">
+              <div class="texto">👨‍👩‍👧 Family</div>
+            </a>
+
+            
+
+        </div>  
+     </section>
+
+      <script src="js/EcoGastoLandingPage.js"></script>
+
+
+
+
+
+    
+
+
+
+
+      
+    </main>
+</body>
+
+
+
+</html>

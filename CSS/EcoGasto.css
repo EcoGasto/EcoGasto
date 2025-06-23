@@ -1,0 +1,416 @@
+/* --- NAVBAR ESTILO GREEN STORE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+header{ 
+
+    position: sticky; /*Permite que neustro menu siempre este visible al subir y bajar en la pagina*/
+    top: 0;
+    z-index: 1000;/*Define el orden el eje Z(delante hacia atras) d elos elementos posicionados. Es decir, indica qué elementos se deben mostrar por encima de otros cuando se superponen.*/
+                  /*El valor 1000 es un número arbitrariamente alto que se usa comúnmente para asegurar que ese elemento esté por encima de la mayoría de otros elementos en la página*/
+                  /*Se usa, por ejemplo, para modales, menús desplegables, notificaciones emergentes, etc.*/
+
+}
+
+.ContenedorLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 64px;
+  width: auto;
+}
+
+.logoTexto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.logoTexto h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.logoTexto p {
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-top: 6px;
+  opacity: 0.85;
+  line-height: 1.3;
+}
+
+
+.MenuNavegador {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background-color: rgba(0, 0, 0, 0.7); /* fondo oscuro con transparencia */
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  width: 100%;
+}
+
+nav{ /*Contenedro que contiene todo el menu de navegación*/
+
+    flex: 1; /*permite que el <nav> se expanda para ocupar todo el espacio disponible entre el logo y el avatar.*/
+    display: flex; /*Otorga propiedades para organizar elemento*/
+    justify-content: flex-end; /*hace que los enlaces se alineen a la derecha dentro de ese espacio.*/
+}
+
+
+/* Enlaces con <ul><li> */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin-right: 20px;
+  padding: 0;
+  
+}
+
+.nav-links li a {
+  color: white;
+ 
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #a3d45d;
+}
+
+.ContenedorFotoPerfil{
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #a3d45d;
+}
+
+/* Imagen circular */
+.avatar-img {
+    
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+
+/*SECCION DE BIENVENIDA*/
+.Bienvenida { /*Antes era bienvenia pero como quiero que mejor todo el fondo sea del fondo de hoja, y otra seccion que tenga otra cosa sobrepuesta, esto va mejor*/
+  position: relative; /*posiciona el contenedor de forma relativa. Esto no lo mueve, pero permite 
+                      posicionar elementos hijos con position: absolute en relación a él. 
+                      Muy útil si luego colocas textos o botones superpuestos.*/
+
+  background-image: url('../Imagenes/FondoMenu.jpg'); /* Ajusta la ruta si usas otro nombre */
+  
+  background-size: cover; /*hace que la imagen cubra completamente toda la sección, 
+                          aunque se recorte en los bordes si no encaja exactamente. 
+                          Así te aseguras de que no haya espacios vacíos*/
+  
+  background-position: center; /*centra la imagen tanto horizontal como verticalmente dentro del fondo, 
+                               para que se vea el punto más importante de la imagen*/
+ 
+  background-repeat: no-repeat; /*evita que la imagen de fondo se repita (por defecto se repite si es más 
+                                pequeña que el área del contenedor).*/
+  
+  min-height: calc(100vh - 70px); /*min-height: define una altura mínima para que esta sección ocupe al menos toda la pantalla*/
+                                  /*calcula la altura de la ventana del navegador (100vh = 100% del alto de la pantalla) menos 70 píxeles
+                                   (que sería la altura del menú de navegación o header)  
+                                   Así evitas que la imagen de fondo quede tapada o recortada por el menú superior*/                   
+ 
+  padding: 180px 60px 60px; /*agrega espacio interno entre los bordes del contenedor .Bienvenida y su contenido (ARRRIBA, IZQ/DER, ABAJO)*/
+}
+
+.Bienvenida::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* Capa oscura encima de la imagen */
+  z-index: 0;
+}
+
+.Bienvenida > * {
+  position: relative;
+  z-index: 1;
+}
+
+/*Esto mantiene tus tarjetas en fila, pero permite que el bloque del botón quede abajo, fuera del flujo horizontal.*/
+.contenedor-tarjetas {
+  display: flex; /*l aplicarlo a un contenedor (por ejemplo, un <div>, <header>), los elementos hijos se alinean en fila (por defecto) y puedes controlar el espacio entre ellos, alinearlo en forma horizontal o vertical, centrarlos facilmentre con justify-content y align-items*/
+                 /*una forma poderosa y moderna de organizar elementos sin usar floats, tablas, o posiciones incómodas.*/
+  gap: 20px;
+  justify-content: space-between; /*center*/
+  align-items: flex-start; /*Esto permite que cada tarjeta tenga su altura natural, sin forzar que todas midan lo mismo.*/
+  flex-wrap: wrap;
+}
+
+
+/* Tarjetas flotantes */
+.tarjetaSobreNosotros {
+  background-color: rgba(255,255,255,0.70);
+  color: black;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 260px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.tarjetaSobreNosotros img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/*------------------------------------------------------------*/
+.Mision {
+  background-color: rgba(255,255,255,0.70);
+  color: black;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 260px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  text-align: center;
+  
+}
+
+.Mision img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
+
+/*------------------------------------------------------------*/
+
+
+.Vision {
+  background-color: rgba(255,255,255,0.70);
+  color: black;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 260px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.Vision img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+/*------------------------------------------------------------*/
+
+
+.BtnEmpiezaCmabio{ /*está definiendo los estilos para una segunda columna (.col2) de un diseño con varias columnas (por ejemplo, en un grid tipo banner)*/
+
+    margin-top: -100px; /* separa del contenido anterior */
+    padding: 1rem 2rem; /*Agrega espaciado interno(1rem arriba y abajo - 2rem a la izquierda y derecha) evitando que esté pegado a los bordes*/
+    display: flex; /*Convierte .col2 en un contenedor flexible con Flexbox, Y POR ELLO: e da más control para alinear y distribuir los elementos internos (como textos, botones, etc.)*/
+    justify-content: center; /*Centra el contenido verticalmente dentro de .col2*/
+                             /*Como se usa con flex-direction: column, el centrado ocurre de arriba a abajo (no de izquierda a derecha).*/
+   
+    flex-direction: column; /*Cambia la dirección del flujo de los elementos hijos: ahora se apilan verticalmente, como una columna*/
+    align-items: center; /* CENTRA todo horizontalmente */
+}
+
+
+.txtEmpiezaCmabio{ /*Editando el txt de la primera seccion, tiene como objetivo dar estilo al texto*/
+   
+    margin: 1rem 0;/*Sirve para separar visualmente el texto del resto del contenido*/
+                   /*Esto aplica un margen vertical de 2 rems (arriba y abajo), y 0 rems horizontal (izquierda y derecha)*/
+   
+    font-size: 1.3rem;/*Define el tamaño de la fuente como 1.3 veces el tamaño base del documento (generalmente 16px → ~20.8px)*/
+    line-height: 2rem;/*Una line-height de 2rem da más espaciado vertical entre líneas, lo que mejora la legibilidad*/
+    text-align: center;/*Alinea el texto al centro del boton*/
+    max-width: 600px;
+    color: rgba(255,255,255,0.85);
+}
+
+.BtnEmpCambio{/*Dar estilo al boton dentro de la columna 2*/
+
+     
+    background: rgba(85, 107, 47, 0.7); /*Color de fondo al boton*/
+    color: rgba(255,255,255,0.85); /*Color de letra dle boton*/
+    padding: 10px 20px; /*Añade espaciado interno para que el botón no esté ajustado al texto(10px arriba y abajo - 20px a los lados)*/
+    border-radius: 25px; /*Hace los bordes bien redondeados según los px*/
+    text-decoration: none; /*Quita el subrayado, puesto por el html por el  <a href="...">*/
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);/*ñLe da sombra al rededor del borde*/
+}
+
+.BtnEmpCambio:hover {
+ background-color: #4b6d3b;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .MenuNavegador {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .ContenedorLogo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-right: 0;
+  }
+
+  .contenedor-tarjetas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tarjetaSobreNosotros,
+  .Mision,
+  .Vision {
+    width: 90%; /* se adapta a móvil */
+    margin-bottom: 20px;
+  }
+
+  .BtnEmpiezaCmabio {
+    padding: 0 20px;
+    margin-top: 10px;
+  }
+
+  .txtEmpiezaCmabio {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+}
+
+
+/*SECCION 2:  DE MODULO UE OFRECENOS CON BOTONES*/
+
+/*SECCION DE BIENVENIDA*/
+.Modulos_Que_Ofrecemos { /*Antes era bienvenia pero como quiero que mejor todo el fondo sea del fondo de hoja, y otra seccion que tenga otra cosa sobrepuesta, esto va mejor*/
+  position: relative; /*posiciona el contenedor de forma relativa. Esto no lo mueve, pero permite 
+                      posicionar elementos hijos con position: absolute en relación a él. 
+                      Muy útil si luego colocas textos o botones superpuestos.*/
+
+  background-image: url('../Imagenes/FONDO_SECCION2.jpg'); /* Ajusta la ruta si usas otro nombre */
+  
+  background-size: cover; /*hace que la imagen cubra completamente toda la sección, 
+                          aunque se recorte en los bordes si no encaja exactamente. 
+                          Así te aseguras de que no haya espacios vacíos*/
+  
+  background-position: center; /*centra la imagen tanto horizontal como verticalmente dentro del fondo, 
+                               para que se vea el punto más importante de la imagen*/
+ 
+  background-repeat: no-repeat; /*evita que la imagen de fondo se repita (por defecto se repite si es más 
+                                pequeña que el área del contenedor).*/
+  
+  min-height: calc(100vh - 70px); /*min-height: define una altura mínima para que esta sección ocupe al menos toda la pantalla*/
+                                  /*calcula la altura de la ventana del navegador (100vh = 100% del alto de la pantalla) menos 70 píxeles
+                                   (que sería la altura del menú de navegación o header)  
+                                   Así evitas que la imagen de fondo quede tapada o recortada por el menú superior*/                   
+ 
+  padding: 180px 60px 60px; /*agrega espacio interno entre los bordes del contenedor .Bienvenida y su contenido (ARRRIBA, IZQ/DER, ABAJO)*/
+
+
+  /*PARA AGREGARLE BORDE A LA SECCION*/
+
+  border: 4px solid #a3d45d; /* Cambia el color y grosor a tu gusto */
+  border-radius: 0 0 0 0; /* Redondea solo arriba */
+  box-sizing: border-box; /* Para que el borde no rompa el layout */
+
+}
+
+
+.Modulos_Que_Ofrecemos::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.Modulos_Que_Ofrecemos > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Estilo base para todos los botones */
+.BotonesXconsumo  {
+  
+  margin-top: -180px; /* separa del contenido anterior (se mueve en eje y)*/
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  padding: 40px 20px;
+
+}
+
+/* Animación al pasar el mouse */
+.BotonesXconsumo a {
+  background-color: #097c29;
+  padding: 30px 20px;
+  width: 180px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.BotonesXconsumo a:hover {/*SIRVE PARA DARLE PROPIEDADES A TUS BOTONES*/
+   transform: translateY(-6px); /* SE LEVANTA EN Y*/
+   background-color: #097c29;
+}
+/* Texto dentro del botón */
+.BotonesXconsumo .texto {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Responsividad opcional */
+@media (max-width: 768px) {
+  .BotonesXconsumo a {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+}
